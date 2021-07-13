@@ -23,9 +23,6 @@ if(!$this->session->userdata('user_id')){
 						<a class="text-reset" href="<?= base_url('index.php/mylyrics'); ?>">My Lyrics</a>
 					</p>
 					<p>
-						<a class="text-reset" href="<?= base_url('index.php/profile'); ?>">Profile</a>
-					</p>
-					<p>
 						<a href="<?= base_url('index.php/logout'); ?>" class="text-reset" onclick="logoutModal();">Log out</a>
 					</p>
 				<?php }else{ ?>

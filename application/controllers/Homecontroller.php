@@ -83,6 +83,7 @@ class Homecontroller extends CI_Controller {
 		$data = $this->home->getSong(urldecode($title));
 		// echo json_encode($data);
 		if($data){
+			$this->home->addViews($data[0]->id);
 			$this->load->view('templates/header',array('title'=>urldecode($title).' | Lyrics PH','sect_title'=>urldecode($title),'content'=>$data));
 			$this->load->view('pages/showsong');
 			$this->load->view('templates/footer');

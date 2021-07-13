@@ -39,4 +39,8 @@ class Home_model extends CI_Model
     	$this->db->insert('userdetails',$data);
     	return true;
     }
+
+    public function addViews($id){
+    	$this->db->where('id',$id)->set('views','views+1',false)->update('lyrics_tbl');
+    }
 }

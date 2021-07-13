@@ -39,9 +39,6 @@
 					<li class="nav-item">
 						<a class="nav-link" href="<?= base_url('index.php/mylyrics'); ?>">My Lyrics</a>
 					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="<?= base_url('index.php/profile'); ?>">Profile</a>
-					</li>
 
 
 				<?php }else{ ?>
