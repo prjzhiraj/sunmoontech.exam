@@ -11,7 +11,7 @@ class Home_model extends CI_Model
 	}
 
 	public function getTitles(){
-		$query = $this->db->select('*')->from('lyrics_tbl')->limit(8)->get();
+		$query = $this->db->select('*')->from('lyrics_tbl')->order_by('date_created','DESC')->limit(8)->get();
 		return ($query->num_rows()>0) ? $query->result() : false;
 	}
 
