@@ -5,8 +5,8 @@
 		</div>
 		<?php 
 		if($songs['mostviewed']){
-			foreach($songs['mostviewed'] as $row){ ?>
-				<div class="col-sm-3 text-center show_title title_<?= $row->id; ?>"><div class="col"><img src="<?= base_url('assets/albumart.jpg'); ?>"/><a class="link-dark" href="<?= base_url('index.php/song/'.$row->title); ?>" target="_blank"><h4><?= $row->title; ?></h4></a><h6><?= $row->artist; ?></h6><h6><?= $row->views; ?> Views</h6></div></div>
+			foreach($songs['mostviewed'] as $key => $row){ ?>
+				<div class="col-sm-3 text-center show_title title_<?= $row->id; ?>"><div class="col"><img src="<?= base_url('assets/albumart-'.$key.'.jpg'); ?>"/><a class="link-dark" href="<?= base_url('index.php/song/'.$row->title); ?>" target="_blank"><h4><?= $row->title; ?></h4></a><h6><?= $row->artist; ?></h6><h6><?= $row->views; ?> Views</h6></div></div>
 			<?php	}
 		}else{ ?>
 			<div class="col-sm-12 text-center"> 
