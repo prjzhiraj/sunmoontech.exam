@@ -22,12 +22,25 @@
 		}else{ ?>
 			<script type="text/javascript">$('.section-2').hide();</script>
 		<?php } ?>
-		<div class="col-sm-12 text-center"><button type="button" class="btn btn-lg btn-success">See more Lyrics</button></div>
+		<div class="col-sm-12 text-center"><a href="<?= base_url('index.php/search'); ?>"><button type="button" class="btn btn-lg btn-success">See more Lyrics</button></a></div>
 	</div>
 
 	<div class="row section-3">
-		<div class="col-sm-12">
-			
+		<div class="col-sm-5" style="padding: 0px;">
+			<img src="<?= base_url('assets/sect-3-singingboii.jpeg')?>" style="width: 100%;">
+		</div>
+		<div class="col-sm-7 quote-cont">
+			<div class="quote-container">
+				<figure>
+					<blockquote class="blockquote">
+						<p>Cras vestibulum vel sapien non tempor. Fusce eleifend sem id nisl lobortis posuere sit amet eu lorem. Phasellus dignissim nulla eget sagittis dapibus. Curabitur faucibus diam non mollis dignissim. Aliquam sit amet libero sed velit faucibus viverra. Pellentesque fermentum dictum molestie.</p>
+					</blockquote>
+					<figcaption class="blockquote-footer">
+						Someone famous in <cite title="Source Title">Source Title</cite>
+					</figcaption>
+				</figure>		
+			</div>
+
 		</div>
 	</div>
 </div>
@@ -96,6 +109,26 @@
 
 	.section-2 button {
 		margin: 30px 0px;
+	}
+
+	.section-3 {
+		background: #0c0c0c;
+		color:	white;
+	}
+
+	.quote-container{
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		height: 100%;
+	}
+
+	.quote-container .blockquote{
+		font-size: 30px;
+	}
+
+	.quote-cont{
+		padding-right: 220px;
 	}
 
 
