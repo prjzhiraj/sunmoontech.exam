@@ -106,8 +106,13 @@ class Homecontroller extends CI_Controller {
 		$searchCount = $this->home->searchCount($searchValue);
 		$data = $this->home->searchLyrics($searchValue,$page);
 		$page++;
+		$searchTitle = 'Search Result for '.$searchValue;
+		if($searchValue == ''){
+			$searchTitle = 'Search Result';
+		}
+		
 
-		$this->load->view('templates/header',array('title'=>'Search Result for '.$searchValue.' | Lyrics PH','sect_title'=>'Search Result for '.$searchValue,'content'=>$data, 'searchValue'=> $searchValue, 'currentpageValue'=>$currentpage ,'nextpageValue'=>$page, 'searchCount'=>$searchCount));
+		$this->load->view('templates/header',array('title'=>'Search Result for '.$searchValue.' | Lyrics PH','sect_title'=>$searchTitle,'content'=>$data, 'searchValue'=> $searchValue, 'currentpageValue'=>$currentpage ,'nextpageValue'=>$page, 'searchCount'=>$searchCount));
 		$this->load->view('pages/searchresult');
 		$this->load->view('templates/footer');
 	}
