@@ -43,7 +43,9 @@
 </div>
 
 <script type="text/javascript">
-
+$(document).ready(function(){
+	$('.section-1 > div').append('<h3>About <?= $searchCount; ?> result/s</h3>');
+});
 </script>
 
 <style type="text/css">

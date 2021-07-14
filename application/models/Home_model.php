@@ -46,4 +46,9 @@ class Home_model extends CI_Model
     public function addViews($id){
     	$this->db->where('id',$id)->set('views','views+1',false)->update('lyrics_tbl');
     }
+
+    public function searchCount($value){
+    	$query = $this->db->select('lt.*,ud.*')->from('lyrics_tbl lt')->join('userdetails ud','ud.user_id = lt.user_id')->like('lt.title',$value)->or_like('lt.artist',$value)->or_like('lt.album',$value)->get();
+    	return ($query->num_rows()>0) ? $query->num_rows() : false;
+    }
 }
