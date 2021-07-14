@@ -57,6 +57,7 @@
 		color: white;
 		max-width: 500px; 
 		margin-bottom: 10px;
+		font-size: 30px;
 	}
 
 	.section-1-search input::placeholder{
