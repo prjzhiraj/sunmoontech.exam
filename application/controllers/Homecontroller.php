@@ -22,7 +22,6 @@ class Homecontroller extends CI_Controller {
 		if(!$this->input->is_ajax_request()){
 			show_404();
 		}
-
 		$data = $this->home->loginGetAccount($this->input->post());
 		if($data){
 			$this->session->set_userdata('email', $data[0]->email);
@@ -55,13 +54,11 @@ class Homecontroller extends CI_Controller {
 				'sname'=>$this->input->post('sname'),
 				'gender'=>$this->input->post('gender')
 			);
-
 			$data2 = array(
 				'username'=>strtolower(substr($this->input->post('fname'),0,1).substr($this->input->post('sname'),1,2).$this->input->post('sname')),
 				'password'=>md5($this->input->post('password')),
 				'email'=>$this->input->post('email')
 			);
-
 			$data1['user_id'] =  $this->home->registerUserAccount($data2);
 			$this->home->registerUserDetails($data1);
 			echo json_encode(array('status' => TRUE, 'data1'=>$data1, 'data2'=>$data2));
@@ -81,7 +78,6 @@ class Homecontroller extends CI_Controller {
 
 	public function viewSong($title){
 		$data = $this->home->getSong(urldecode($title));
-		// echo json_encode($data);
 		if($data){
 			$this->home->addViews($data[0]->id);
 			$this->load->view('templates/header',array('title'=>urldecode($title).' | Lyrics PH','sect_title'=>urldecode($title),'content'=>$data));
@@ -90,7 +86,6 @@ class Homecontroller extends CI_Controller {
 		}else{
 			Redirect(base_url(), false);
 		}
-
 	}
 
 	public function searchResult($page = 0){
@@ -110,13 +105,8 @@ class Homecontroller extends CI_Controller {
 		if($searchValue == ''){
 			$searchTitle = 'Search Result';
 		}
-		
-
 		$this->load->view('templates/header',array('title'=>'Search Result for '.$searchValue.' | Lyrics PH','sect_title'=>$searchTitle,'content'=>$data, 'searchValue'=> $searchValue, 'currentpageValue'=>$currentpage ,'nextpageValue'=>$page, 'searchCount'=>$searchCount));
 		$this->load->view('pages/searchresult');
 		$this->load->view('templates/footer');
 	}
-
-
-
 }

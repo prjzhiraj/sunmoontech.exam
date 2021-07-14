@@ -7,26 +7,15 @@ class Accountcontroller extends CI_Controller {
 		parent::__construct();
 		$this->load->library('session');
 		$this->load->helper(array('form', 'url'));
+		$this->load->library('form_validation');
 		if($this->session->userdata('user_id')){
-
 			$this->load->model('Home_model','home');
 			$this->load->model('Account_model','account');
-			$this->load->library('form_validation');
 		}else{
 			redirect('');
 			exit();
 		}
-
 	}
-
-	// public function index()
-	// {
-	// 	$data = $this->home->getTitles();
-	// 	// $this->load->view('templates/header',array('title'=>'Lyrics PH','content'=>$data));
-	// 	// $this->load->view('pages/home');
-	// 	// $this->load->view('templates/footer');
-	// 	echo $this->session->userdata('username');
-	// }
 
 	public function mylyrics()
 	{
@@ -50,7 +39,6 @@ class Accountcontroller extends CI_Controller {
 			show_404();
 		}
 		$data = $this->account->getSelectedSongs($this->input->post('id'));
-
 		echo json_encode($data);
 	}
 
@@ -59,7 +47,6 @@ class Accountcontroller extends CI_Controller {
 			show_404();
 		}
 		$data = $this->account->deleteLyrics($this->input->post('id'));
-
 		echo true;
 	}
 
@@ -67,11 +54,9 @@ class Accountcontroller extends CI_Controller {
 		if(!$this->input->is_ajax_request()){
 			show_404();
 		}
-
 		$this->form_validation->set_rules('title','<b>Song Title</b>','trim|required');
 		$this->form_validation->set_rules('artist','<b>Artist</b>','trim|required');
 		$this->form_validation->set_rules('lyrics','<b>Lyrics Content</b>','trim|required');
-
 		if($this->form_validation->run()){
 			$data = $this->input->post();
 			if(!$data['album'])
@@ -92,11 +77,9 @@ class Accountcontroller extends CI_Controller {
 		if(!$this->input->is_ajax_request()){
 			show_404();
 		}
-
 		$this->form_validation->set_rules('title','<b>Song Title</b>','trim|required');
 		$this->form_validation->set_rules('artist','<b>Artist</b>','trim|required');
 		$this->form_validation->set_rules('lyrics','<b>Lyrics Content</b>','trim|required');
-
 		if($this->form_validation->run()){
 			$data = $this->input->post();
 			if(!$data['album'])
@@ -115,7 +98,6 @@ class Accountcontroller extends CI_Controller {
 
 	public function profile()
 	{
-		// $data = $this->home->getTitles();
 		$this->load->view('templates/header',array('title'=>'Profile | Lyrics PH','sect_title'=>'Profile'));
 		$this->load->view('pages/profile');
 		$this->load->view('templates/footer');

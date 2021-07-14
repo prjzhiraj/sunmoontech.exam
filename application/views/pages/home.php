@@ -8,7 +8,6 @@
 					<input type="hidden" name="page" value="0">
 					<button class="btn btn-outline-light" type="submit">Search Lyrics</button>
 				</center>
-				
 			</form>
 		</div>
 	</div>
@@ -20,11 +19,16 @@
 			foreach($content as $key => $row){
 				echo '<div class="col-sm-3 text-center show_title title_'.$row->id.'"><div class="col"><img src="'.base_url('assets/albumart-'.$key.'.jpg').'"/><a class="link-dark" href="'.base_url('index.php/song/'.$row->title).'"><h4>'.$row->title.'</h4></a><h6>'.$row->artist.'</h6></div></div>';
 			}	
-		}else{
-
-		}
-		?>
+		}else{ ?>
+			<script type="text/javascript">$('.section-2').hide();</script>
+		<?php } ?>
 		<div class="col-sm-12 text-center"><button type="button" class="btn btn-lg btn-success">See more Lyrics</button></div>
+	</div>
+
+	<div class="row section-3">
+		<div class="col-sm-12">
+			
+		</div>
 	</div>
 </div>
 

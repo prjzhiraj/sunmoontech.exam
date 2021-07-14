@@ -11,7 +11,7 @@ if(!$this->session->userdata('user_id')){
 <footer>
 	<div class="container-fluid footer text-lg-start bg-light text-muted">
 		<div class="row footer-row">
-			<div class="col-sm-4">
+			<div class="col-sm-2">
 				<h6 class="text-uppercase fw-bold mb-4">
 					Menu
 				</h6>
@@ -34,6 +34,18 @@ if(!$this->session->userdata('user_id')){
 					</p>
 
 				<?php }?>
+			</div>
+			<div class="col-sm-6">
+				<h3>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Be a King or a Street Sweeper, everyone dances with a Grim Reaper congue vehicula risus. Pellentesque finibus pellentesque euismod.</h3>
+				<hr>
+				<div class="icons">
+					<i class="fa fa-facebook-square" aria-hidden="true"></i>
+					<i class="fa fa-instagram" aria-hidden="true"></i>
+					<i class="fa fa-twitter" aria-hidden="true"></i>
+					<i class="fa fa-youtube-play" aria-hidden="true"></i>
+					<i class="fa fa-linkedin-square" aria-hidden="true"></i>
+				</div>
+				
 			</div>
 		</div>
 		<div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
@@ -142,6 +154,10 @@ if(!$this->session->userdata('user_id')){
 
 	body{
 		background: none;
+	}
+
+	div.icons{
+		font-size: 50px;
 	}
 
 	.regInputHelp{
