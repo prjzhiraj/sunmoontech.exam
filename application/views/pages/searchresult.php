@@ -9,7 +9,7 @@
 								<img class="albumart" src="<?= base_url('assets/albumart.jpg'); ?>"/>
 							</div>
 							<div class="col-sm-9">
-								<h2><?= $row->title?></h2>
+								<a class="text-reset" href="<?= base_url('index.php/song/'.$row->title); ?>"><h2><?= $row->title?></h2></a>
 								<h5>Artist: <?= $row->artist?></h5>
 								<h5>Album: <?= $row->album?></h5>
 							</div>
