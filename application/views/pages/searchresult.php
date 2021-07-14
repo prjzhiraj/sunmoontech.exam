@@ -2,7 +2,7 @@
 	<div class="row">
 		<div class="col-sm-9" id="searchResult">
 			<?php if($content){ 
-				foreach($content as $row){?>
+				foreach($content as $key => $row){?>
 					<div class="col-sm-12">
 						<div class="row">
 							<div class="col-sm-3">
@@ -16,32 +16,48 @@
 						</div>
 					</div>
 
-				<?php }}else{ ?>
-					<div class="col-sm-12 resultNone">
-						<h3>There is no result for <?= $searchValue; ?> :(</h3>
-						<h5>Try Harder! Music is forever...</h5>
+					<?php $totalrow = $key;
+
+				} ?> 
+				<div class="row">
+					<div class="col-sm-12 text-center">
+						<?php $prevpageValue = $currentpageValue - 1;?>
+						<?php if ($currentpageValue != 0) { // hides when page = 0 ?>
+							<a class="text-reset" href="<?= base_url('index.php/search?search='.$searchValue.'&page='.$prevpageValue); ?>"><< Prev</a>
+						<?php }?>
+						<?php if ($totalrow == 9) { // value of limit search ?>
+							<a class="text-reset" href="<?= base_url('index.php/search?search='.$searchValue.'&page='.$nextpageValue); ?>">Next >></a>
+						<?php } ?>
 					</div>
-				<?php } ?>
-			</div>
+				</div>
+
+
+			<?php }else{ ?>
+				<div class="col-sm-12 resultNone">
+					<h3>There is no result for <?= $searchValue; ?> :(</h3>
+					<h5>Try Harder! Music is forever...</h5>
+				</div>
+			<?php } ?>
 		</div>
 	</div>
+</div>
 
-	<script type="text/javascript">
+<script type="text/javascript">
 
-	</script>
+</script>
 
-	<style type="text/css">
-		#searchResult div{
-			padding: 10px;
-		}
+<style type="text/css">
+	#searchResult div{
+		padding: 10px;
+	}
 
-		#searchResult .resultNone{
-			padding: 80px 30px;
-		}
+	#searchResult .resultNone{
+		padding: 80px 30px;
+	}
 
 
-		.albumart{
-			width: 100%;
-		}
+	.albumart{
+		width: 100%;
+	}
 
-	</style>
+</style>

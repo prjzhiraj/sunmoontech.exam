@@ -93,14 +93,20 @@ class Homecontroller extends CI_Controller {
 
 	}
 
-	public function searchResult(){
-		$data = $this->home->searchLyrics($_GET['search']);
+	public function searchResult($page = 0){
+		
+		if($_GET['page']){
+			$page = $_GET['page'];
+		}
 
-		// $data[0]['lyrics'] = addslashes($data[0]['lyrics']);
+		$data = $this->home->searchLyrics($_GET['search'],$page);
+		$page++;
 
-		$this->load->view('templates/header',array('title'=>'Search Result for '.$_GET['search'].' | Lyrics PH','sect_title'=>'Search Result for '.$_GET['search'],'content'=>$data, 'searchValue'=> $_GET['search']));
+		$this->load->view('templates/header',array('title'=>'Search Result for '.$_GET['search'].' | Lyrics PH','sect_title'=>'Search Result for '.$_GET['search'],'content'=>$data, 'searchValue'=> $_GET['search'], 'currentpageValue'=>$_GET['page'] ,'nextpageValue'=>$page));
 		$this->load->view('pages/searchresult');
 		$this->load->view('templates/footer');
 	}
+
+
 
 }

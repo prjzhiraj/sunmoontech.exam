@@ -54,6 +54,7 @@
 			</ul>
 			<form class="d-flex" action="<?= base_url('/index.php/search'); ?>" method="get">
 				<input class="form-control me-2" type="search" placeholder="Search Lyrics" name="search" aria-label="Search">
+				<input type="hidden" name="page" value="0">
 				<button class="btn btn-outline-success" type="submit">Search</button>
 			</form>
 		</div>

@@ -25,8 +25,11 @@ class Home_model extends CI_Model
     	return ($query->num_rows()>0) ? $query->result() : false;
     }
 
-    public function searchLyrics($value){
-    	$query = $this->db->select('lt.*,ud.*')->from('lyrics_tbl lt')->join('userdetails ud','ud.user_id = lt.user_id')->like('lt.title',$value)->or_like('lt.artist',$value)->or_like('lt.album',$value)->get();
+    public function searchLyrics($value,$page = 0){
+    	$count = 10;
+    	$page_val = $count*$page;
+
+    	$query = $this->db->select('lt.*,ud.*')->from('lyrics_tbl lt')->join('userdetails ud','ud.user_id = lt.user_id')->like('lt.title',$value)->or_like('lt.artist',$value)->or_like('lt.album',$value)->limit($count,$page_val)->get();
     	return ($query->num_rows()>0) ? $query->result() : false;
     }
 

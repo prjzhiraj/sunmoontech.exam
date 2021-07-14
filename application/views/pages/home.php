@@ -5,6 +5,7 @@
 			<form class="section-1-search" action="<?= base_url('/index.php/search'); ?>" method="get">
 				<center>
 					<input class="form-control me-2" type="search" placeholder="Search Lyrics" name="search" aria-label="Search">
+					<input type="hidden" name="page" value="0">
 					<button class="btn btn-outline-light" type="submit">Search Lyrics</button>
 				</center>
 				
@@ -15,10 +16,13 @@
 	<div class="row section-2">
 		<div class="col-sm-12 text-center title font-weight-bold"><h1 class="font-weight-bold">RECENT SONGS</h1></div>
 		<?php 
-		foreach($content as $row){
-			echo '<div class="col-sm-3 text-center show_title title_'.$row->id.'"><div class="col"><img src="'.base_url('assets/albumart.jpg').'"/><a class="link-dark" href="'.base_url('index.php/song/'.$row->title).'"><h4>'.$row->title.'</h4></a><h6>'.$row->artist.'</h6></div></div>';
-		}
+		if($content){
+			foreach($content as $key => $row){
+				echo '<div class="col-sm-3 text-center show_title title_'.$row->id.'"><div class="col"><img src="'.base_url('assets/albumart-'.$key.'.jpg').'"/><a class="link-dark" href="'.base_url('index.php/song/'.$row->title).'"><h4>'.$row->title.'</h4></a><h6>'.$row->artist.'</h6></div></div>';
+			}	
+		}else{
 
+		}
 		?>
 		<div class="col-sm-12 text-center"><button type="button" class="btn btn-lg btn-success">See more Lyrics</button></div>
 	</div>
